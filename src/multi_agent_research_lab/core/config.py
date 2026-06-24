@@ -25,6 +25,13 @@ class Settings(BaseSettings):
 
     tavily_api_key: str | None = Field(default=None, validation_alias="TAVILY_API_KEY")
 
+    llm_provider: str = Field(default="openai", validation_alias="LLM_PROVIDER")
+    openrouter_api_key: str | None = Field(default=None, validation_alias="OPENROUTER_API_KEY")
+    openrouter_base_url: str = Field(default="https://openrouter.ai/api/v1", validation_alias="OPENROUTER_BASE_URL")
+    openrouter_model: str = Field(default="openai/gpt-4o-mini", validation_alias="OPENROUTER_MODEL")
+
+    use_mock: bool = Field(default=True, validation_alias="USE_MOCK")
+
     max_iterations: int = Field(default=6, ge=1, le=20, validation_alias="MAX_ITERATIONS")
     timeout_seconds: int = Field(default=60, ge=5, le=600, validation_alias="TIMEOUT_SECONDS")
 
